@@ -14,13 +14,16 @@
 则表示你的电脑并非UEFI引导而可能是BIOS引导
 
 4.连网:
+-----
 (1)有线:守护进程 dhcpcd 已被默认启用来探测有线设备, 并会尝试连接。
 (2)无线:#wifi-menu(顺便下载dialog软件包)
 
 5:更新系统时间以确保系统时间是正确的:
+--------------------------
 #timedatectl set-ntp true
 
 6:硬盘分区:
+-------------
 (1)执行#lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)
 (2)分区:
 /	必须
@@ -30,12 +33,13 @@ swap	建议物理内存的1/2
 (如果为UEFI,则还需建立一个EFI分区/boot/EFI建议大小200MB)
 
 7:格式化分区并挂载:
-(1)格式化
+-----------------------
+#(1)格式化
 UEFI分区:#mkfs.fat -F32 /dev/?
 其他分区:#mkfs.ext4 /dev/?
 swap分区:#mkswap /dev/?	格式化为swap格式
 	#swapon /dev/?	启动swap分区
-(2)挂载
+#(2)挂载
 mount /dev/? /mnt   根分区挂到/mnt
 mkdir /mnt/home
 mount /dev/? /mnt/home
@@ -44,20 +48,23 @@ mount /dev/? /mnt/boot
 
 
 下面是一系列下载安装过程,建议先更改镜像源,让下载速度更快些
-
+--------------------------------------------
 #nano /etc/pacman.d/mirrorlist
 注释掉中国之前的镜像源,让第一个可用的镜像源是中国的,推荐清华镜像源
 Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 
 8:安装基本系统:
+---------------------
 #pacstrap -i /mnt base base-devel(参数-i会询问你是否确认安装)
 
 9:配置系统:
+------------------------
 #genfstab -U /mnt >> /mnt/etc/
 fstab(-U或-L选项设置UUID或卷标,建议使用UUID)
 #cat /mnt/etc/fstab		检查一下生成的/mnt/etc/fstab文件是否正确
 
 10:切换到新系统,进一步设置:
+-----------
 #arch-chroot /mnt		切换到新系统
 #pacman -S vim		下载vim
 #tzelect			设置时区,依次选择4911
@@ -78,6 +85,7 @@ fstab(-U或-L选项设置UUID或卷标,建议使用UUID)
 username ALL=(ALL) ALL
 
 11.安装grub引导项
+---------------------
 #pacman -S grub 		安装grub引导程序(若为UEFI引导,则还需安装efibootmgr)
 传统引导方式,将引导信息写入到硬盘(!不是某个分区)
 #grub-install --target=i386-pc /dev/sdx		
@@ -94,7 +102,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 #exit			退出chroot环境
 #umount -R /mnt		卸载分区
-#reboot 			重启系统：systemd 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用rooet帐户登录到新系统。
+#reboot 		重启系统：systemd 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用rooet帐户登录到新系统。
 
 END!!! 
 
