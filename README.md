@@ -4,12 +4,13 @@
 ----------------
 2.开机选择从对应的启动盘启动
 ----------------------------
-3.验证启动模式:
-------------------
+###3.验证启动模式:
+
 开机时进入BIOS设置查看或更改引导方式.
-如果以在 UEFI 主板上启用 UEFI 模式, Archiso 将会使用 systemd-boot 来启动 Arch Linux。
+如果以在 UEFI 主板上启用 UEFI 模式, 
+Archiso 将会使用 systemd-boot 来启动 Arch Linux。
 可以执行如下命令列出 efivars 目录以验证启动模式: 
-#ls /sys/firmware/efi/efivars
+*ls /sys/firmware/efi/efivars
 如果提示:no such file or directory,
 则表示你的电脑并非UEFI引导而可能是BIOS引导
 
@@ -20,13 +21,13 @@
 
 5:更新系统时间以确保系统时间是正确的:
 --------------------------
-#timedatectl set-ntp true
+*timedatectl set-ntp true
 
 6:硬盘分区:
 -------------
 (1)执行#lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)
 (2)分区:
-/	必须
+/	必须\n
 /home	
 /boot	必须(建议200MB)
 swap	建议物理内存的1/2
