@@ -1,0 +1,252 @@
+# ————————————————————系统原有配置————————————————————————————
+
+#~~~~~~~~~~系统字体~~~~~~~~~~
+
+#font pango:monospace 9
+
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font pango:DejaVu Sans Mono 15
+#font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 13
+#font pango:Terminus 12px
+
+#这套应用于Mac OS上的字体可到github上下载
+font pango:System San Francisco Display Regular.ttf 11
+
+#~~~~~~~~~~方向键~~~~~~~~~~
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+#~~~~~~~~~~Mod1+鼠标右键改变当多个窗口排列时的窗口大小~~~~~~~~~~
+floating_modifier Mod1
+
+#~~~~~~~~~~打开终端~~~~~~~~~~
+bindsym Mod1+Return exec urxvt -sh 40
+
+#~~~~~~~~~~关闭当前窗口~~~~~~~~~~
+bindsym Mod1+q kill
+
+#~~~~~~~~~~应用程序启动器~~~~~~~~~~
+bindsym Mod1+d exec dmenu_run
+
+#~~~~~~~~~~改变焦点(1)~~~~~~~~~~
+bindsym Mod1+$left focus left
+bindsym Mod1+$down focus down
+bindsym Mod1+$up focus up
+bindsym Mod1+$right focus right
+
+#~~~~~~~~~~改变焦点(2)~~~~~~~~~~
+bindsym Mod1+Left focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+Up focus up
+bindsym Mod1+Right focus right
+
+#~~~~~~~~~~移动窗口位置(1)~~~~~~~~~~
+bindsym Mod1+Shift+$left move left
+bindsym Mod1+Shift+$down move down
+bindsym Mod1+Shift+$up move up
+bindsym Mod1+Shift+$right move right
+
+#~~~~~~~~~~移动窗口位置(2)~~~~~~~~~~
+bindsym Mod1+Shift+Left move left
+bindsym Mod1+Shift+Down move down
+bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+Right move right
+
+#~~~~~~~~~~垂直分割窗口~~~~~~~~~~
+bindsym Mod1+h split h
+
+#~~~~~~~~~~水平分割窗口~~~~~~~~~~
+bindsym Mod1+v split v
+
+#~~~~~~~~~~窗口全屏~~~~~~~~~~
+bindsym Mod1+f fullscreen toggle
+
+#~~~~~~~~~~改变窗口布局~~~~~~~~~~
+bindsym Mod1+s layout stacking
+bindsym Mod1+w layout tabbed
+bindsym Mod1+e layout toggle split
+
+#~~~~~~~~~~切换窗口为平铺或悬浮状态~~~~~~~~~~
+bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+space focus mode_toggle
+
+#~~~~~~~~~~焦点移动到当前的整个布局~~~~~~~~~~~
+bindsym Mod1+a focus parent
+
+#~~~~~~~~~~把当前聚焦的窗口移动到便条簿暂时隐藏起来~~~~~~~~~~
+bindsym Mod1+Shift+minus move scratchpad
+bindsym Mod1+minus scratchpad show
+
+#~~~~~~~~~~工作区的设置~~~~~~~~~~
+set $ws1 " "
+set $ws2 " "
+set $ws3 "&#xf001;"
+set $ws4 "&#xf008;"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#~~~~~~~~~~切换不同的工作区~~~~~~~~~~
+bindsym Mod1+1 workspace $ws1
+bindsym Mod1+2 workspace $ws2
+bindsym Mod1+3 workspace $ws3
+bindsym Mod1+4 workspace $ws4
+bindsym Mod1+5 workspace $ws5
+bindsym Mod1+6 workspace $ws6
+bindsym Mod1+7 workspace $ws7
+bindsym Mod1+8 workspace $ws8
+bindsym Mod1+9 workspace $ws9
+bindsym Mod1+0 workspace $ws10
+
+#~~~~~~~~~~把当前应用移动到其他工作区~~~~~~~~~~
+bindsym Mod1+Shift+1 move container to workspace $ws1
+bindsym Mod1+Shift+2 move container to workspace $ws2
+bindsym Mod1+Shift+3 move container to workspace $ws3
+bindsym Mod1+Shift+4 move container to workspace $ws4
+bindsym Mod1+Shift+5 move container to workspace $ws5
+bindsym Mod1+Shift+6 move container to workspace $ws6
+bindsym Mod1+Shift+7 move container to workspace $ws7
+bindsym Mod1+Shift+8 move container to workspace $ws8
+bindsym Mod1+Shift+9 move container to workspace $ws9
+bindsym Mod1+Shift+0 move container to workspace $ws10
+
+#~~~~~~~~~~重新加载所有的配置文件~~~~~~~~~~
+bindsym Mod1+Shift+c reload
+
+#~~~~~~~~~~重启i3环境~~~~~~~~~~
+bindsym Mod1+Shift+r restart
+
+#~~~~~~~~~~离开i3,即推出X会话~~~~~~~~~~
+bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#~~~~~~~~~~改变窗口大小~~~~~~~~~~
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or Mod1+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod1+r mode "default"
+}
+
+bindsym Mod1+r mode "resize"
+
+
+
+#__________________________以下为自主配置____________________________
+exec_always compton -b
+exec_always fcitx
+exec_always feh --bg-center /home/linfei/Downloads/s.jpg
+
+assign [class="Firefox"] $ws2
+
+
+
+#~~~~~~~~~~电源管理与系统命令~~~~~~~~~~
+set $mode_system  lock(L) logout(O) reboot(R) shutdown(S) exit(Esc)
+bindsym $mod+Shift+q mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec i3lock -c '#000000', mode "default"
+    bindsym o exec i3-msg exit, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym s exec  systemctl poweroff, mode "default"
+    bindsym Escape mode "default"
+}
+#~~~~~~~~~~i3-gaps配置，实现i3bar的透明化~~~~~~~~~~
+for_window [class="^.*"] border pixel 0
+gaps inner 8
+gaps outer 6
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+#~~~~~~~~~~窗口颜色~~~~~~~~~~
+# 窗口类型                边框    背景    文字    提示
+client.focused          #333333 #333333 #FFFFFF #333333
+client.focused_inactive #999999 #999999 #FFFFFF #3399FF
+client.unfocused        #999999 #999999 #FFFFFF #3399FF
+client.urgent           #990000 #990000 #FFFFFF #990000
+client.placeholder      #000000 #000000 #FFFFFF #000000
+client.background       #FFFFFF
+
+#~~~~~~~~~~i3bar设置~~~~~~~~~~
+bar {
+    i3bar_command i3bar -t
+    height 28
+    #禁止systemtray
+    tray_output none
+    # i3bar调用
+    status_command i3status
+    # 显示位置top/bottom
+    position bottom
+    # 是否隐藏
+    #mode hide
+    # 拆解工作区名（隐藏前面的1:2:3:……）
+    strip_workspace_numbers yes
+    # 定义分隔符∥
+    separator_symbol "    "
+
+    colors {
+        background #10101000
+        statusline #FFFFFF
+        separator  #3399FF
+        # 工作区颜色         边框    背景    文字
+        focused_workspace  #3297FD #11111100 #FFFFFF
+        active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
+        inactive_workspace #111111 #11111100 #FFFFFF
+        urgent_workspace   #990000 #11111100 #FFFFFF
+        binding_mode       #990000 #99000000 #FFFFFF
+    }
+}
