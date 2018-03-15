@@ -20,8 +20,8 @@ Archiso 将会使用 systemd-boot 来启动 Arch Linux。
 	timedatectl set-ntp true  
 
 ### 6:硬盘分区:	
-- 执行lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)  	
-- 分区:
+执行lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)  	
+分区:
 
 	/		必须  
 	/home	
@@ -30,7 +30,7 @@ Archiso 将会使用 systemd-boot 来启动 Arch Linux。
 (如果为UEFI,则还需建立一个EFI分区/boot/EFI建议大小200MB)	
 
 ### 7:格式化分区并挂载:	
-- 格式化    
+格式化    
 UEFI分区:	
 
 	mkfs.fat -F32 /dev/?	
@@ -41,7 +41,7 @@ swap分区:
 
 	mkswap /dev/?	格式化为swap格式		
 	swapon /dev/?	启动swap分区		
-- 挂载
+挂载
 
 	mount /dev/? /mnt   根分区挂到/mnt
 	mkdir /mnt/home
@@ -90,24 +90,24 @@ swap分区:
 
 ### 11.安装grub引导项 
 	pacman -S grub 		安装grub引导程序(若为UEFI引导,则还需安装efibootmgr)  
-- 传统引导方式,将引导信息写入到硬盘(!不是某个分区)  
+传统引导方式,将引导信息写入到硬盘(!不是某个分区)  
 
 	grub-install --target=i386-pc /dev/sdx		
-- UEFI引导  
+UEFI引导  
 
 	grub-install --target=x86_64-efi --efi-directory=esp_mount --bootloader-id=grub      	
-- 处理器厂商会发布 microcode 以增强系统稳定性和解决安全问题。Microcode 可以通过 BIOS 更新，Linux   内核也支持启动时应用新的 Microcode。没有这些更新，可能会遇到一些很难查的的死机或崩溃问题。  
+处理器厂商会发布 microcode 以增强系统稳定性和解决安全问题。Microcode 可以通过 BIOS 更新，Linux   内核也支持启动时应用新的 Microcode。没有这些更新，可能会遇到一些很难查的的死机或崩溃问题。  
 
 	pacman -S intel-ucode
-- 生成配置文件grub.cfg  
+生成配置文件grub.cfg  
 
 	grub-mkconfig -o /boot/grub/grub.cfg	   
-- 安装yaourt  
+安装yaourt  
 
 	vim /etc/pacman.conf        在最后添加如下内容  
 	[archlinuxcn]  
 	Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  
-- 下载archlinuxcn-keyring  
+下载archlinuxcn-keyring  
 
 	pacman -S archlinux-keyring
 
@@ -116,15 +116,15 @@ swap分区:
 	umount -R /mnt				卸载分区  
 	reboot 						重启系统：systemd  
 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用rooet帐户登录到新系统。  
-_____________________________________________________________________________
+_____________________________________________________________************************
 **至此,基本系统就已经基本完成了,但只有命令行界面,  
 不过这才是linux的真谛啊(ﾟ▽ﾟ)**
 
-#####后续可选择性安装桌面环境  
-#####要想系统性能最大化,可以只安装窗口管理器  
-#####>堆叠式:Openbox,FVWM,Compiz等  
-#####>平铺式:dswm等  
-#####>动态式:i3等  
+##### 后续可选择性安装桌面环境  
+##### 要想系统性能最大化,可以只安装窗口管理器  
+##### >堆叠式:Openbox,FVWM,Compiz等  
+##### >平铺式:dswm等  
+##### >动态式:i3等  
 
 *因为所有的桌面环境都以X为基础,所以必须安装xorg*  
 
