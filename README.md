@@ -73,10 +73,10 @@ swap分区:
 	vim /etc/locale.gen			注释掉en_US.UTF-8 UTF-8和zh_CN.UTF-8 UTF-8	
 (本地化的程序与库若要本地化文本，都依赖 Locale, 	后者明确规定地域、货币、时区日期的格式、字符排列方式和其他本地化标准等等)	
 
-	locale-gen	生成locale讯息		
+	locale-gen				生成locale讯息		
 	pacman -S dialog networkmanager	 下载dialog,用于无线联网	
 	systemctl enable NetworkManager   !!!这步很重要,不然有可能老连不上网	
-	passwd		设置root账户密码		
+	passwd					设置root账户密码		
 
 *可以在此时添加用户,也可以以后再添加*  
 
@@ -85,7 +85,7 @@ swap分区:
 *为用户添加sudo权限*  	
 
 	pacman -S sudo 		下载sudo
-	vim /etc/sudoers      添加如下内容	
+	vim /etc/sudoers       添加如下内容	
 >username ALL=(ALL) ALL	
 
 ### 11.安装grub引导项 
@@ -115,14 +115,13 @@ swap分区:
 	reboot 						重启系统(也可以不重启,直接安装自己需要的环境)
 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用rooet帐户登录到新系统。  
 ----------------------------------------------------------------------------
-**至此,基本系统就已经基本完成了,但只有命令行界面,  
-不过这才是linux的真谛啊(ﾟ▽ﾟ)**
+**至此,基本系统就已经基本完成了,但只有命令行界面,不过这才是linux的真谛啊(ﾟ▽ﾟ)**
 
 ##### 后续可选择性安装桌面环境,要想系统性能最大化,可以只安装窗口管理器  
-**>堆叠式:Openbox,FVWM,Compiz等  
+>堆叠式:Openbox,FVWM,Compiz等  
 >平铺式:dswm等  
 >动态式:i3等 
->具体请参考**:
+>具体请参考:
 >https://wiki.archlinux.org/index.php/Window_manager
 
 *因为所有的桌面环境都以X为基础,所以必须安装xorg*  
@@ -138,8 +137,8 @@ ______________________________________________________________________________
 >参考官网https://i3wm.org/
 ### 1.下载i3
 	pacman -S i3-gaps i3blocks i3lock i3status (此处选择i3-gaps作为i3-wm的替代,是为了实现i3bar的透明化)
-	pacman -S feh       					(用来设置壁纸)
-	pacman -S dmenu						(作为系统的程序启动器,因为i3桌面上是没有任何类似于Windows的快捷图标的)
+	pacman -S feh       		   (用来设置壁纸)
+	pacman -S dmenu				  (作为系统的程序启动器,因为i3桌面上是没有任何类似于Windows的快捷图标的)
 ### 2.为了能在在tty界面使用startx命令启动i3WM,请先下载  
 
 	pacman -S xorg-xinit
@@ -172,5 +171,4 @@ ______________________________________________________________________________
 ### 4.其他一些具体的配置文件请参考:
 >https://github.com/linfeitang/i3
 
-!
-	http://a1.qpic.cn/psb?/V10psO2g0ublGH/QK5Rui0TB.JJl3SubzI11b1hI30bQPrQhdkTH23j59g!/b/dPQAAAAAAAAA&ek=1&kp=1&pt=0&bo=IgNZAgAAAAADN2g!&vuin=2831248375&tm=1521086400&sce=60-2-2&rf=viewer_4
+! http://a1.qpic.cn/psb?/V10psO2g0ublGH/QK5Rui0TB.JJl3SubzI11b1hI30bQPrQhdkTH23j59g!/b/dPQAAAAAAAAA&ek=1&kp=1&pt=0&bo=IgNZAgAAAAADN2g!&vuin=2831248375&tm=1521086400&sce=60-2-2&rf=viewer_4
