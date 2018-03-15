@@ -23,10 +23,10 @@ Archiso 将会使用 systemd-boot 来启动 Arch Linux。
 执行lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)  	
 分区:
 
-	/		必须  
-	/home	
-	/boot	必须(建议200MB)	
-	swap	建议物理内存的1/2	  	
+>/		必须  
+>/home	
+>/boot	必须(建议200MB)	
+>swap	建议物理内存的1/2	  	
 (如果为UEFI,则还需建立一个EFI分区/boot/EFI建议大小200MB)	
 
 ### 7:格式化分区并挂载:	
@@ -68,15 +68,15 @@ swap分区:
 
 	arch-chroot /mnt			切换到新系统		
 	pacman -S vim				下载vim		
-	tzelect						设置时区,依次选择4911			
-	hwclock --systohc --utc 	设置时间标准为UTC,并调整时间漂移	
+	tzelect					设置时区,依次选择4911			
+	hwclock --systohc --utc 		设置时间标准为UTC,并调整时间漂移	
 	vim /etc/locale.gen			注释掉en_US.UTF-8 UTF-8和zh_CN.UTF-8 UTF-8	
 (本地化的程序与库若要本地化文本，都依赖 Locale, 	后者明确规定地域、货币、时区日期的格式、字符排列方式和其他本地化标准等等)	
 
-	locale-gen					生成locale讯息		
-	pacman -S dialog	networkmanager	下载dialog,用于无线联网	
+	locale-gen						生成locale讯息		
+	pacman -S dialog networkmanager	下载dialog,用于无线联网	
 	systemctl enable NetworkManager   !!!这步很重要,不然有可能老连不上网	
-	passwd						设置root账户密码		
+	passwd							设置root账户密码		
 
 *可以在此时添加用户,也可以以后再添加*  
 
@@ -84,16 +84,17 @@ swap分区:
 	passwd username	
 *为用户添加sudo权限*  	
 
-	pacman -S sudo 	
+	pacman -S sudo 		下载sudo
 	vim /etc/sudoers    添加如下内容	
-	username ALL=(ALL) ALL	
+>username ALL=(ALL) ALL	
 
 ### 11.安装grub引导项 
-	pacman -S grub 		安装grub引导程序(若为UEFI引导,则还需安装efibootmgr)  
-传统引导方式,将引导信息写入到硬盘(!不是某个分区)  
+	pacman -S grub 		安装grub引导程序(若为UEFI引导,则还需安装efibootmgr) 
+##### !下面的grub-install命令是要将引导信息写入到整个系统所在的硬盘,而不是某个分区
+若为传统引导方式,  
 
 	grub-install --target=i386-pc /dev/sdx		
-UEFI引导  
+若为UEFI引导方式,
 
 	grub-install --target=x86_64-efi --efi-directory=esp_mount --bootloader-id=grub      	
 处理器厂商会发布 microcode 以增强系统稳定性和解决安全问题。Microcode 可以通过 BIOS 更新，Linux   内核也支持启动时应用新的 Microcode。没有这些更新，可能会遇到一些很难查的的死机或崩溃问题。  
@@ -105,18 +106,16 @@ UEFI引导
 安装yaourt  
 
 	vim /etc/pacman.conf        在最后添加如下内容  
-	[archlinuxcn]  
-	Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  
+>[archlinuxcn]  
+>Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  
 下载archlinuxcn-keyring  
 
 	pacman -S archlinux-keyring
-
-
 	exit						推出当前环境
-	umount -R /mnt				卸载分区  
-	reboot 						重启系统：systemd  
+	umount -R /mnt					卸载分区  
+	reboot 						重启系统(也可以不重启,直接安装自己需要的环境)
 将自动卸载仍然挂载的任何分区。不要忘记移除安装介质，然后使用rooet帐户登录到新系统。  
-_____________________________________________________________************************
+____________________________________________________________________________
 **至此,基本系统就已经基本完成了,但只有命令行界面,  
 不过这才是linux的真谛啊(ﾟ▽ﾟ)**
 
@@ -125,7 +124,52 @@ _____________________________________________________________*******************
 ##### >堆叠式:Openbox,FVWM,Compiz等  
 ##### >平铺式:dswm等  
 ##### >动态式:i3等  
+**具体请参考**
+>https://wiki.archlinux.org/index.php/Window_manager
 
 *因为所有的桌面环境都以X为基础,所以必须安装xorg*  
 
 	pacman -S xorg(安装i3的话好像可以不用这整个包组) 
+
+
+________________________我不是分界线_________________
+
+# 下面是关于i3wm的一些说明
+#####*之所以选择i3,起初纯粹是觉得帅,特别是配置成功之后的那种成就感(ﾟдﾟ≡ﾟдﾟ) ,后来发现不仅仅是帅这么简单Σ(ﾟДﾟ；≡；ﾟдﾟ) (┌|◎o◎|┘ 恐惧加深)~~~~~~~~~~~*
+>参考官网https://i3wm.org/
+### 1.下载i3
+	pacman -S i3-gaps i3blocks i3lock i3status (此处选择i3-gaps作为i3-wm的替代,是为了实现i3bar的透明化)
+	pacman -S feh       (用来设置壁纸)
+	pacman -S dmenu		(作为系统的程序启动器,因为i3桌面上是没有任何类似于Windows的快捷图标的)
+### 2.为了在tty界面使用命令startx启动i3WM,请先下载
+
+	pacman -S xorg-xinit
+	pacman -S xorg-server
+然后复制
+
+	cp /etc/X11/xinit/xinitrc ~/.xinitrc
+    cp /etc/X11/xinit/xserverrc ~/.xserverrc
+编辑~/.xinitrc,在末尾添加exec i3(或者其他的窗口管理器)
+注意,此后还需要下载
+
+	ttf-dejavu 
+	wqy-microhei
+否则登陆进去后可能是乱码!
+
+### 3.让工作区显示图标,请下载font-awesome这套图标字体 
+>http://fontawesome.dashgame.com/
+
+然后unzip命令解压,切换到目录
+(如果系统提示找不到命令,请先下载unzip)
+
+	sudo pacman -S unzip		(下载unzip)
+	cd Downloads/font-awesome-4.7.0/fonts  (具体版本号以你下载的为准)
+	mkdir ~/.fonts
+	mv fontawesome-webfont.ttf ~/.fonts
+
+最后到网站下载图标复制到~/.i3/config对应的workspace设置里面
+>https://fontawesome.bootstrapcheatsheets.com/
+
+### 4.其他一些具体的配置文件请参考:
+>https://github.com/linfeitang/i3
+
