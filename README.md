@@ -1,8 +1,8 @@
 关于Archlinux的一个简短的安装教程:
-------------------------------
-1.制作启动盘  
-2.开机选择从对应的启动盘启动  
-3.验证启动模式:  
+=================================
+### 1.制作启动盘  
+### 2.开机选择从对应的启动盘启动  
+### 3.验证启动模式:  
 开机时进入BIOS设置查看或更改引导方式.   
 如果以在 UEFI 主板上启用 UEFI 模式, 
 Archiso 将会使用 systemd-boot 来启动 Arch Linux。  
@@ -11,16 +11,16 @@ Archiso 将会使用 systemd-boot 来启动 Arch Linux。
 如果提示:no such file or directory,  
 则表示你的电脑并非UEFI引导而可能是BIOS引导  
 
-###4.连网:  
-(1)有线:守护进程 dhcpcd 已被默认启用来探测有线设备, 并会尝试连接。   
-(2)无线:wifi-menu(顺便下载dialog软件包)  
+### 4.连网:  
+- 有线:守护进程 dhcpcd 已被默认启用来探测有线设备, 并会尝试连接。   
+- 无线:wifi-menu(顺便下载dialog软件包)  
 
 5:更新系统时间以确保系统时间是正确的:  
 	timedatectl set-ntp true  
 
 6:硬盘分区:	
-(1)执行#lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)  	
-(2)分区:		
++ 执行#lsblk查看存储设备信息,找到自己要安装的硬盘(以rom,loop,airoot命名的设备不用管)  	
++ 分区:		
 /	必须    
 /home	
 /boot	必须(建议200MB)	
@@ -43,20 +43,20 @@ swap分区:	mkswap /dev/?	格式化为swap格式
 
 下面是一系列下载安装过程,建议先更改镜像源,让下载速度更快些
 -------------------------------------------------------
-#nano /etc/pacman.d/mirrorlist	
+	nano /etc/pacman.d/mirrorlist	
 注释掉中国之前的镜像源,让第一个可用的镜像源是中国的,推荐清华镜像源	
-Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch   	
+	Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch   	
 	
 8:安装基本系统:	
-#pacstrap -i /mnt base base-devel(参数-i会询问你是否确认安装)		
+	pacstrap -i /mnt base base-devel(参数-i会询问你是否确认安装)		
 
 9:配置系统:		
-#genfstab -U /mnt >> /mnt/etc/		
+	genfstab -U /mnt >> /mnt/etc/		
 fstab(-U或-L选项设置UUID或卷标,建议使用UUID)	
-#cat /mnt/etc/fstab		检查一下生成的/mnt/etc/fstab文件是否正确	
+	cat /mnt/etc/fstab		检查一下生成的/mnt/etc/fstab文件是否正确	
 	
 10:切换到新系统,进一步设置:		
-#arch-chroot /mnt		切换到新系统		
+	arch-chroot /mnt		切换到新系统		
 #pacman -S vim		下载vim		
 #tzelect			设置时区,依次选择4911			
 #hwclock --systohc --utc 	设置时间标准为UTC,并调整时间漂移	
