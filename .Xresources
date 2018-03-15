@@ -43,5 +43,5 @@ URxvt.scrollTtyKeypress:True
 URxvt.cursorBlink:True
 URxvt.saveLines:3000
 
-!!边框
+!! 边框
 URxvt.borderLess:False
