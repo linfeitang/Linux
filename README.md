@@ -24,10 +24,10 @@ Archiso 将会使用 systemd-boot 来启动 Arch Linux。
 分区:
 
 >/		必须  
->/home	
->/boot	必须(建议200MB)	
->swap	建议物理内存的1/2	  	
-(如果为UEFI,则还需建立一个EFI分区/boot/EFI建议大小200MB)	
+>/home  	 
+>/boot	必须(建议200MB)     	
+>swap	建议物理内存的1/2  	  	
+(如果为UEFI,则还需建立一个EFI分区/boot/EFI建议大小200MB)  	
 
 ### 7:格式化分区并挂载:	
 格式化    
