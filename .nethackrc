@@ -1,5 +1,8 @@
 PTIONS=autopick,pickup_types:$
-OPTIONS=color
+OPTIONS=color,menucolors
+MENUCOLOR="blessed"=green
+MENUCOLOR="cursed"=red
+MENUCOLOR="uncursed"=yellow
 OPTIONS=statushilites
 OPTIONS=time,showexp
 OPTIONS=font_message:wqy-microhei,font_size_message:12
