@@ -1,4 +1,4 @@
-PTIONS=autopick,pickup_types:$
+OPTIONS=autopick,pickup_types:$?
 OPTIONS=color,menucolors
 MENUCOLOR="blessed"=green
 MENUCOLOR="cursed"=red
