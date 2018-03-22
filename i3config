@@ -158,7 +158,7 @@ bindsym Mod1+r mode "resize"
 #__________________________以下为自主配置____________________________
 exec_always compton -b
 exec_always fcitx
-exec_always feh --bg-center /home/linfei/Downloads/s.jpg
+#exec_always feh --bg-center /home/linfei/Downloads/s.jpg
 
 assign [class="Firefox"] $ws2
 
@@ -254,11 +254,10 @@ bar {
 }
 
 
-附加:下载安装font-awesome这套字体
-http://fontawesome.dashgame.com/
-sudo pacman -S unzip   (if the commond not fond)
-unzip font-awesome-4.7.0.zip
-cd Downloads/font-awesome-4.7.0/fonts  (具体版本号以你下载的为准)
-mkdir ~/.fonts
-mv fontawesome-webfont.ttf ~/.fonts
-
+#附加:下载安装font-awesome这套字体
+#http://fontawesome.dashgame.com/
+#sudo pacman -S unzip   (if the commond not fond)
+#unzip font-awesome-4.7.0.zip
+#cd Downloads/font-awesome-4.7.0/fonts  (具体版本号以你下载的为准)
+#mkdir ~/.fonts
+#mv fontawesome-webfont.ttf ~/.fonts
