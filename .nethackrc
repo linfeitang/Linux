@@ -6,4 +6,4 @@ MENUCOLOR="uncursed"=yellow
 OPTIONS=statushilites
 OPTIONS=time,showexp
 OPTIONS=font_message:wqy-microhei,font_size_message:12
-OPTIONS=name:LINFEI,role:Valkyrie,race:dwarf,gender:female,align:lawful.
+OPTIONS=name:LINFEI,role:Valkyrie,race:dwarf,gender:female,align:lawful
