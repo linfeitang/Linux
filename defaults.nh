@@ -63,22 +63,22 @@ OPTIONS=suppress_alert:3.3.1
 # possible map_mode options include: tiles|ascii4x6|ascii6x8|ascii8x8|ascii16x8|
 #                                    ascii7x12|ascii8x12|ascii16x12|ascii12x16|
 #                                    ascii10x18|fit_to_screen
-OPTIONS=map_mode:tiles,scroll_margin:1
+OPTIONS=map_mode:tiles,scroll_margin:0
 
 # Message window settings
 OPTIONS=font_message:Arial,font_size_message:12,align_message:top
 
 # Menu settings
-OPTIONS=font_menu:Arial,font_size_menu:9
+OPTIONS=font_menu:Arial,font_size_menu:12
 
 # Text settings
-OPTIONS=font_text:Courier New,font_size_text:10
+OPTIONS=font_text:Courier New,font_size_text:14
 
 # Status window settings
 OPTIONS=font_status:Courier New,font_size_status:12
 
 # Other
-OPTIONS=hilite_pet,!toptenwin
+OPTIONS=hilite_pet,toptenwin
 #OPTIONS=!splash_screen,player_selection:prompts
 
 # Status/message window colors
@@ -153,14 +153,13 @@ OPTIONS=windowcolors:status windowtext/window message windowtext/window
 OPTIONS=color,menucolors
 MENUCOLOR="blessed"=green
 MENUCOLOR="cursed"=red
-MENUCOLOR="uncursed"=yellow
-OPTIONS=statushilites
+MENUCOLOR="uncursed"=blue
 
 #初始化角色种族和阵营:
-OPTIONS=name:LINFEI,role:Valkyrie,race:dwarf,gender:female,align:lawful
+OPTIONS=name:LINER,role:barbarian,race:orc,gender:male,align:chaotic
 
 #为宠物和马驹,水果命名
-OPTIONS=dogname:DDD,catname:FFF,fruit:shuiguo
+OPTIONS=dogname:狗,catname:猫,fruit:水果
 OPTIONS=horsename:Silver
 
 #是否自动拾取,此处只选择自动捡钱
@@ -173,3 +172,21 @@ OPTIONS=time,showexp,number_pad:0,lit_corridor
 
 OPTIONS=symset:IBMGraphics_1,roguesymset:RogueEpyx
 #其中,IBMGraphics_1使得地板的形状为'#'
+
+
+OPTIONS=!splash_screen,player_selection:prompts
+OPTIONS=vary_msgcount:3
+OPTIONS=fullscreen,wraptext,softkeyboard
+
+OPTIONS=paranoid_confirmation:pray quit attack remove
+OPTIONS=use_darkgray
+OPTIONS=sortloot:full
+OPTIONS=statushilites
+
+MENUCOLOR="!B($| )"=white
+MENUCOLOR="!C($| )"=white
+MENUCOLOR="!U($| )"=white
+MENUCOLOR="tested"=white
+MENUCOLOR=" blessed| B($| )"=lightblue
+MENUCOLOR=" uncursed| UC?($| )"=green
+MENUCOLOR=" cursed| C($| )"=red
