@@ -1,0 +1,13 @@
+1.关于fcitx输入法
+pacman -S fcitx-im   (fcitx软件包组)
+pacman -S fcitx-configtool  图形化配置
+pacman -S fcitx-googlepinyin
+
+设置环境变量,这个是最最重要的.将以下内容加入到显示管理器的配置文件中
+(KDM,GDM,LightDM的配置文件为~/.xprofile;startx,Slim配置文件为~/.xinitrc)
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
+配置后重新登录生效，使用CTRL+空格激活输入法，如果发现fcitx没有运行，则直接在命令行里或者在i3的dmenu执行fcitx即可。
