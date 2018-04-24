@@ -1,0 +1,29 @@
+file filename(可以有多个文件作为参数)
+查看文件类型
+
+显示文件的
+前十行head filename
+后十行tail filename
+参数 -n 可自行指定行数,如head -n 20 filename
+
+sort filename
+把文件内容按首字母顺序展示出来,数字>小写>大写
+
+wc filename
+依次打印出文件的行数,单词数,字节数,文件名
+
+nl filename
+在文件的每一行前面显示行数
+
+umask  默认为022
+创建一个新的文件夹时,扣除的权限.
+文件夹默认为  rwxr-x-r-x
+文件默认为     rw-r--r--
+
+更改系统时间
+#date -s "20180303 15:15:45"
+#hwclock --systohc  系统时钟与硬件时钟同步
+
+自定义命令别名
+在.bashrc中添加
+例如	alias ll='ls -a'等等
