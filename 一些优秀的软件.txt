@@ -1,0 +1,33 @@
+﻿如果安装i3:
+i3-gaps
+i3locks
+i3blocks
+i3status
+py3status-git
+dmenu
+feh
+ttf-dejavu 
+wqy-microhei
+
+或者也可以安装一个桌面环境lxde
+ -----------------------------
+lxterminal
+gnome-terminal
+urxvt(rxvt-unicode)
+Firefox
+tmux	 ~/.tmux.conf
+ranger
+screenfeetch & neofetch
+cmus
+xorg-xinit
+xorg-server
+
+一些实用工具:
+zip
+unzip
+git 
+wget		
+glances		轻量级友善系统全面监视工具
+net-tools
+gparted		可视化磁盘管理器
+timeshift	一款不错的备份工具
