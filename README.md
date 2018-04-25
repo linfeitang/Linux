@@ -16,7 +16,7 @@
 + 有计划性的学习
 
 **分享一些学习网站**
->https://linuxjourney.com/
->https://www.tldp.org/LDP/intro-linux/html/index.html
+>https://linuxjourney.com/  
+>https://www.tldp.org/LDP/intro-linux/html/index.html  
 
->https://xeushack.com/
+>https://xeushack.com/  
