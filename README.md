@@ -15,8 +15,13 @@
 + 在实践中学习
 + 有计划性的学习
 
-**分享一些学习网站**
+#### 分享一些学习网站
+**Linux**  
 >https://linuxjourney.com/  
 >https://www.tldp.org/LDP/intro-linux/html/index.html  
 
+**hacker**  
 >https://xeushack.com/  
+
+**markdown**
+>https://blog.csdn.net/witnessai1/article/details/52551362  
