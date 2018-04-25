@@ -1,0 +1,4 @@
+虚拟终端 virtual terminal,指的是tty
+终端仿真器terminal emulator,类似xterm,urxvt可以提供shell的程序
+
+两者作用相同,都是为用户提供了shell程序,shell是系统调用接口,是用户与系统核心进行沟通的桥梁.shell接受你输入的命令并将其转交给Linux kneral

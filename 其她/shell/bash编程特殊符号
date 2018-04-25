@@ -1,0 +1,111 @@
+* 万能匹配字符,用于文件名匹配(这个东西有个专有名词叫file globbing),或者是正则
+表达式中.注意:在正则表达式匹配中的作用和在文件名匹配中的作用是不同的.
+bash$ echo *
+abs-book.sgml add-drive.sh agram.sh alias.sh
+* 数学乘法.
+**是幂运算.
+? 测试操作.在一个确定的表达式中,用?来测试结果.
+(())结构可以用来做数学计算或者是写c 代码,那?就是c 语言的3 元操作符的
+一个.
+在"参数替换"中,?测试一个变量是否被set 了.
+? 在file globbing 中和在正则表达式中一样匹配任意的单个字符.
+$ 变量替换
+1 var1=5
+2 var2=23skidoo
+3
+4 echo $var1 # 5
+5 echo $var2 # 23skidoo
+$ 在正则表达式中作为行结束符.
+${} 参数替换,见9.3 节.
+$*,$@ 位置参数
+$? 退出状态变量.$?保存一个命令/一个函数或者脚本本身的退出状态.
+$$ 进程ID 变量.这个$$变量保存运行脚本进程ID
+() 命令组.如:
+1 (a=hello;echo $a)
+注意:在()中的命令列表,将作为一个子shell 来运行.
+在()中的变量,由于是在子shell 中,所以对于脚本剩下的部分是不可用的.
+
+{xxx,yyy,zzz...}
+大括号扩展,如:
+1 cat {file1,file2,file3} > combined_file
+2 # 把file1,file2,file3 连接在一起,并且重定向到combined_file 中.
+3
+4
+5 cp file22.{txt,backup}
+6 # 拷贝"file22.txt" 到"file22.backup"中
+一个命令可能会对大括号中的以逗号分割的文件列表起作用[1]. file globbing 将对
+大括号中的文件名作扩展.
+注意: 在大括号中,不允许有空白,除非这个空白是有意义的.
+echo {file1,file2}\ :{\ A," B",' C'}
+file1 : A file1 : B file1 : C file2 : A file2 : B file2 : C
+{} 代码块.又被称为内部组.事实上,这个结构创建了一个匿名的函数.但是与函数不同的
+是,在其中声明的变量,对于脚本其他部分的代码来说还是可见的.如:
+bash$
+{
+local a;
+a= 123;
+}
+bash中的local 申请的变量只能够用在函数中.
+1 a=123
+2 { a=321; }
+3 echo "a = $a" # a = 321 (说明在代码块中对变量a 所作的修改,影响了外边的变
+量a)
+
+{} \; 路径名.一般都在find 命令中使用.这不是一个shell 内建命令.
+注意: ";"用来结束find 命令序列的-exec 选项.
+[] test.
+test的表达式将在[]中.
+值得注意的是[是shell 内建test 命令的一部分,并不是/usr/bin/test 中的扩展命令
+的一个连接.
+[[]] test.
+test表达式放在[[]]中.(shell 关键字)
+具体查看[[]]结构的讨论.
+[] 数组元素
+Array[1]=slot_1
+echo ${Array[1]}
+[] 字符范围
+在正则表达式中使用,作为字符匹配的一个范围
+
+(()) 数学计算的扩展
+在(())结构中可以使用一些数字计算.
+具体参阅((...))结构.
+>&>>&>><
+重定向.
+scriptname >filename 重定向脚本的输出到文件中.覆盖文件原有内容.
+command &>filename 重定向stdout 和stderr 到文件中
+command >&2 重定向command 的stdout 到stderr
+scriptname >>filename 重定向脚本的输出到文件中.添加到文件尾端,如果没有文件,
+则创建这个文件.
+进程替换,具体见"进程替换部分",跟命令替换极其类似.
+(command)>
+<(command)
+<和> 可用来做字符串比较
+<和> 可用在数学计算比较
+<< 重定向,用在"here document"
+<<< 重定向,用在"here string"
+<,> ASCII 比较
+1 veg1=carrots
+2 veg2=tomatoes
+3
+4 if [[ "$veg1" < "$veg2" ]]
+5 then
+6 echo "Although $veg1 precede $veg2 in the dictionary,"
+7 echo "this implies nothing about my culinary preferences."
+8 else
+9 echo "What kind of dictionary are you using, anyhow?"
+10 fi
+\<,\> 正则表达式中的单词边界.如:
+bash$grep '\<the\>' textfile
+| 管道.分析前边命令的输出,并将输出作为后边命令的输入.这是一种产生命令链的
+好方法.
+1 echo ls -l | sh
+2 # 传递"echo ls -l"的输出到shell 中,
+3 #+ 与一个简单的"ls -l"结果相同.
+>| 强制重定向(即使设置了noclobber 选项--就是-C 选项).这将强制的覆盖一个现存文件.
+|| 或-逻辑操作.
+& 后台运行命令.一个命令后边跟一个&,将表示在后台运行.
+bash$sleep 10 &
+[1] 850
+[1]+ Done sleep 10
+在一个脚本中,命令和循环都可能运行在后台.
+&& 与逻辑操作.
