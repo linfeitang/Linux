@@ -1,3 +1,5 @@
+可参考http://www.cnblogs.com/forward/archive/2012/01/10/2318483.html
+
 apt-cache search # ------(package 搜索包)
 apt-cache show #------(package 获取包的相关信息，如说明、大小、版本等)
 apt-cache depends #-------(package 了解使用依赖)
