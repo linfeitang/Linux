@@ -216,7 +216,7 @@ mode "$mode_gaps_outer" {
 }
 #~~~~~~~~~~窗口颜色~~~~~~~~~~
 # 窗口类型                边框    背景    文字    提示
-client.focused          #00ffff #333333 #FFFFFF #333333
+client.focused          #04ff00 #333333 #FFFFFF #333333
 client.focused_inactive #04ff00 #333333 #FFFFFF #3399FF
 client.unfocused        #3297fd #333333 #FFFFFF #3399FF
 client.urgent           #990000 #990000 #FFFFFF #990000
