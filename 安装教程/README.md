@@ -170,8 +170,4 @@ ______________________________________________________________________________
 ### 4.其他一些具体的配置文件请参考:
 >https://github.com/linfeitang/i3
 
->效果图:  
-http://a1.qpic.cn/psb?/V10psO2g0ublGH/QK5Rui0TB.JJl3SubzI11b1hI30bQPrQhdkTH23j59g!/b/dPQAAAAAAAAA&ek=1&kp=1&pt=0&bo=IgNZAgAAAAADN2g!&vuin=2831248375&tm=1521086400&sce=60-2-2&rf=viewer_4
-
-*这些还远远不够全面.又想起了那句话:  
-技术如此高深,生命如此短暂*
+*技术如此高深,生命如此短暂*
