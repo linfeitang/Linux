@@ -17,8 +17,23 @@
 
 #### 分享一些学习网站
 **Linux**  
->https://linuxjourney.com/  
+>Linux journey  
+>https://linuxjourney.com/   
+
+>像是个电子书,英文版的  
 >https://www.tldp.org/LDP/intro-linux/html/index.html  
+
+>UNIX Tutorial for Beginners    
+>http://www.ee.surrey.ac.uk/Teaching/Unix/  
+
+>Linux教程|菜鸟教程  
+>http://www.runoob.com/linux/linux-tutorial.html  
+
+>Linux knowledge base and tutorial  
+>http://www.linux-tutorial.info/  
+
+>tutorialpoint,知识分类  
+>http://www.tutorialspoint.com/listtutorials/linux/1  
 
 **hacker**  
 >https://xeushack.com/  
