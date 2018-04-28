@@ -29,8 +29,8 @@
 >Linux教程|菜鸟教程  
 >http://www.runoob.com/linux/linux-tutorial.html  
 
->Linux knowledge base and tutorial,个人感觉比较杂  
->http://www.linux-tutorial.info/  
+>Linux knowledge base and tutorial  
+>http://www.linux-tutorial.info/modules.php?name=MContent&pageid=224  
 
 >tutorialpoint,知识分类  
 >http://www.tutorialspoint.com/listtutorials/linux/1  
