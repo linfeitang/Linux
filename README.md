@@ -23,13 +23,13 @@
 >像是个电子书,英文版的  
 >https://www.tldp.org/LDP/intro-linux/html/index.html  
 
->UNIX Tutorial for Beginners    
+>UNIX Tutorial for Beginners,写的非常简洁明了,方便快速入门   
 >http://www.ee.surrey.ac.uk/Teaching/Unix/  
 
 >Linux教程|菜鸟教程  
 >http://www.runoob.com/linux/linux-tutorial.html  
 
->Linux knowledge base and tutorial  
+>Linux knowledge base and tutorial,个人感觉比较杂  
 >http://www.linux-tutorial.info/  
 
 >tutorialpoint,知识分类  
