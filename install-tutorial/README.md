@@ -96,7 +96,7 @@ swap分区:
 	grub-install --target=i386-pc /dev/sdx		
 若为UEFI引导方式,
 
-	grub-install --target=x86_64-efi --efi-directory=esp_mount --bootloader-id=grub      	
+	grub-install --target=x86_64-efi --efi-directory=/boot/EFI   --bootloader-id=grub      	
 处理器厂商会发布 microcode 以增强系统稳定性和解决安全问题。Microcode 可以通过 BIOS 更新，Linux   内核也支持启动时应用新的 Microcode。没有这些更新，可能会遇到一些很难查的的死机或崩溃问题。  
 
 	pacman -S intel-ucode
@@ -108,6 +108,12 @@ swap分区:
 	vim /etc/pacman.conf        在最后添加如下内容  
 >[archlinuxcn]  
 >Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  
+安装显卡驱动
+
+	lspci | grep VGA 		确定显卡型号
+	pacman -S xf86-video-intel   (此处应该为你电脑对应的驱动)
+	pacman -S xf86-input-synaptics (笔记本触摸板驱动)
+	pacman -S ttf-dejavu wqy-microhei(避免设置中文环境时字体显示不全现象)
   
 	pacman -S archlinux-keyring  下载archlinuxcn-keyring 
 	exit						推出当前环境
