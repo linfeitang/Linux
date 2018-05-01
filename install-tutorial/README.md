@@ -108,14 +108,16 @@ swap分区:
 	vim /etc/pacman.conf        在最后添加如下内容  
 >[archlinuxcn]  
 >Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch  
-安装显卡驱动
+
+	pacman -S archlinux-keyring  下载archlinuxcn-keyring 
+安装显卡驱动  
 
 	lspci | grep VGA 		确定显卡型号
-	pacman -S xf86-video-intel   (此处应该为你电脑对应的驱动)
+	pacman -S xf86-video-intel     (此处应该为你电脑对应的驱动)
 	pacman -S xf86-input-synaptics (笔记本触摸板驱动)
 	pacman -S ttf-dejavu wqy-microhei(避免设置中文环境时字体显示不全现象)
   
-	pacman -S archlinux-keyring  下载archlinuxcn-keyring 
+
 	exit						推出当前环境
 	umount -R /mnt					卸载分区  
 	reboot 						重启系统(也可以不重启,直接安装自己需要的环境)
