@@ -68,7 +68,15 @@ swap分区:
 
 	arch-chroot /mnt			切换到新系统		
 	pacman -S vim				下载vim		
-	tzelect					设置时区,依次选择4911			
+	tzelect					设置时区,依次选择4911	
+{*另一种设置时间的方法更值得推荐*
+
+	ln -S /usr/share/zoneinfo/Asia/Shanghai /etc/locatime  
+*之后再同步本地时钟*
+
+	hwclock --localtime  
+}
+	
 	hwclock --systohc --utc 		设置时间标准为UTC,并调整时间漂移	
 	vim /etc/locale.gen			注释掉en_US.UTF-8 UTF-8和zh_CN.UTF-8 UTF-8	
 (本地化的程序与库若要本地化文本，都依赖 Locale, 	后者明确规定地域、货币、时区日期的格式、字符排列方式和其他本地化标准等等)	
@@ -96,7 +104,7 @@ swap分区:
 	grub-install --target=i386-pc /dev/sdx		
 若为UEFI引导方式,
 
-	grub-install --target=x86_64-efi --efi-directory=/boot/EFI   --bootloader-id=grub      	
+	grub-install --target=x86_64-efi --efi-directory=/boot/efi   --bootloader-id=grub      	
 处理器厂商会发布 microcode 以增强系统稳定性和解决安全问题。Microcode 可以通过 BIOS 更新，Linux   内核也支持启动时应用新的 Microcode。没有这些更新，可能会遇到一些很难查的的死机或崩溃问题。  
 
 	pacman -S intel-ucode
