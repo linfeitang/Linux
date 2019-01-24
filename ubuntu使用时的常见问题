@@ -1,0 +1,36 @@
+浏览器无法播放视频，下载如下两个插件：
+flashplugin-nonfree 
+ubuntu-restricted-extras
+
+
+单击dock栏应用实现最小化，执行如下命令：
+$ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+
+为了通过浏览器顺利安装扩展，首先安装firefox扩展gnome shell integration
+https://addons.mozilla.org/en-US/firefox/addon/gnome-shell-integration/
+然后安装连接器：
+$sudo apt install chrome-gnome-shell
+一些优秀的扩展：
+simple net speed
+Top panel workspace scroll
+dash to panel
+
+
+网易云音乐打不开：
+编辑 /usr/share/applications/netease-cloud-music.desktop 文件，
+更改为 Exec=netease-cloud-music -no-sandbox %U 即可
+
+
+下载搜狗输入法:
+首先下载fcitx,并把在"语言支持"中把"键盘输入法系统"更改为fcitx
+然后去搜狗官网下载linux输入法.deb包
+执行 $sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb
+会提示依赖未解决
+接着执行 $sudo apt install -f
+再次 $sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb
+注销后进入就可以使用搜狗输入法了。
+
+
+
+
