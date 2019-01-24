@@ -38,21 +38,31 @@
 **hacker**  
 >https://xeushack.com/  
 
-**markdown**
->https://blog.csdn.net/witnessai1/article/details/52551362   
-+ markdown中是可以直接插入html代码的,浏览器会显示出html的效果  
-***例如:***
-
-<table>
-    <tr>
-        <th rowspan="2">值班人员</th>
-        <th>星期一</th>
-        <th>星期二</th>
-        <th>星期三</th>
-    </tr>
-    <tr>
-        <td>李强</td>
-        <td>张明</td>
-        <td>王平</td>
-    </tr>
-</table>
+一款超轻巧无需安装的刻录盘制作工具   
+>https://rufus.akeo.ie/?locale=zh_CN  
+### unetbootin
+可在线下载Linux发行版及各种软件包,制作启动盘,或将系统安装在U盘上  
+>http://unetbootin.github.io/  
+>https://sourceforge.net/projects/unetbootin/  
+*两个都可以*  
+### Etcher
+跨平台免费图形界面刻录工具,界面唯美直观,简洁大方,强烈推荐  
+>https://etcher.io/  
+### everything
+Windows下再好用的文件搜索神器  
+>http://www.voidtools.com/  
+### DiskMax
+专业的垃圾清理软件,或许比xx管家之类的好用  
+>https://www.koshyjohn.com/software/diskmax/  
+### WinRAR
+英文版,无广告  
+>https://www.rarlab.com/download.htm  
+### snipaste
+非常方便好用的截图工具,别再为了截个图把球球打开了  
+>https://www.snipaste.com/  
+### TranslucentTB
+任务栏透明  
+>http://www.softpedia.com/get/Tweak/System-Tweak/TranslucentTB.shtml  
+### Classic Shell
+重新定义你的开始菜单,不止如此,还包括浏览器,文件夹等等,同时大大提高你的效率  
+>http://www.classicshell.net/   
