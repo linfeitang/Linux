@@ -38,6 +38,7 @@
 **hacker**  
 >https://xeushack.com/  
 
+##Windows下的一些软件推荐
 一款超轻巧无需安装的刻录盘制作工具   
 >https://rufus.akeo.ie/?locale=zh_CN  
 ### unetbootin
@@ -54,6 +55,9 @@ Windows下再好用的文件搜索神器
 ### DiskMax
 专业的垃圾清理软件,或许比xx管家之类的好用  
 >https://www.koshyjohn.com/software/diskmax/  
+###CCleaner
+非常有名的垃圾清理软件
+>https://www.ccleaner.com/ccleaner
 ### WinRAR
 英文版,无广告  
 >https://www.rarlab.com/download.htm  
