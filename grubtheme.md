@@ -11,8 +11,6 @@ https://www.gnome-look.org/browse/cat/109/
 	$sudo vim /etc/grub.d/00_header
 	要添加的内容是:
 	GRUB_THEME="/boot/grub/themes/theme_name/theme.txt"
-![ ](https://github.com/linfeitang/Photo/blob/master/wallpapers/grubtheme.png)
-
 #### 5.更新grub文件
 
 	$sudo update-grub
