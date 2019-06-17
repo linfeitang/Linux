@@ -27,12 +27,12 @@ sublime-text3
 > Categories=TextEditor;Development;  
 > StartupNotify=true  
 > Actions=Window;Document;  
-
+>   
 > [Desktop Action Window]  
 > Name=New Window  
 > Exec=/opt/sublime_text/sublime_text -n  
 > OnlyShowIn=Unity;  
-
+>   
 > [Desktop Action Document]  
 > Name=New File  
 > Exec=/opt/sublime_text/sublime_text --command new_file  
