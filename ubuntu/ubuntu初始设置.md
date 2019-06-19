@@ -16,15 +16,11 @@
 `$ sudo apt remove --purge gnome-shell-extensions-ubuntu-dock`
 
 ***应用下载链接：***
-网易云音乐:    
-[](https://music.163.com/#/download)   
 
-Google Chrome:  
-[](https://google.cn/chrome/)
+[网易云音乐](https://music.163.com/#/download)   
 
-Sublime-text3:  
-[](http://www.sublimetextcn.com/)
+[Google Chrome](https://google.cn/chrome/)
 
-Wps2019:  
-[](https://www.wps.cn/product/wpslinux)   
+[Sublime-text3](http://www.sublimetextcn.com/)
 
+[Wps2019](https://www.wps.cn/product/wpslinux)   
