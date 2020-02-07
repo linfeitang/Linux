@@ -107,26 +107,26 @@ http://www.tutorialspoint.com/listtutorials/linux/1
 
 
 #### Windows下的一些软件推荐  
-**rufus**  
+- rufus
 一款超轻巧无需安装的刻录盘制作工具     
 https://rufus.akeo.ie/?locale=zh_CN  
-**unetbootin**  
+- unetbootin 
 可在线下载Linux发行版及各种软件包,制作启动盘,或将系统安装在U盘上  
 http://unetbootin.github.io/   
 https://sourceforge.net/projects/unetbootin/  
 *两个都可以*   
-**Etcher**  
+- Etcher  
 跨平台免费图形界面刻录工具,界面唯美直观,简洁大方,强烈推荐  
 https://etcher.io/  
-**everything**  
+- everything  
 Windows下再好用的文件搜索神器  
 http://www.voidtools.com/  
-**DiskMax**  
+- DiskMax    
 专业的垃圾清理软件,或许比xx管家之类的好用  
 https://www.koshyjohn.com/software/diskmax/  
-**CCleaner**  
+- CCleaner
 非常有名的垃圾清理软件
 https://www.ccleaner.com/ccleaner
-**snipaste**  
+- snipaste
 非常方便好用的截图工具,别再为了截个图把球球打开了  
 https://www.snipaste.com/   
